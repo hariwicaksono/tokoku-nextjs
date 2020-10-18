@@ -1,0 +1,34 @@
+{
+  "name": "next-js-react-bootstrap",
+  "version": "0.1.0",
+  "main": "src/index.js",
+  "license": "MIT",
+  "scripts": {
+    "dev": "next",
+    "build": "next build",
+    "start": "next start"
+  },
+  "dependencies": {
+    "@zeit/next-css": "^1.0.1",
+    "argon-design-system-react": "^1.1.0",
+    "axios": "^0.20.0",
+    "bootstrap": "^4.4.1",
+    "formik": "^2.2.0",
+    "js-cookie": "^2.2.1",
+    "moment": "^2.29.1",
+    "next": "^9.3.2",
+    "react": "^16.13.0",
+    "react-bootstrap": "^1.0.0-beta.17",
+    "react-dom": "^16.13.0",
+    "react-icons": "^3.11.0",
+    "react-loader": "^2.4.7",
+    "react-loading-skeleton": "^2.1.1",
+    "react-notifications": "^1.7.2",
+    "react-paginate": "^6.5.0",
+    "spin.js": "^4.1.0",
+    "tiny-slider": "^2.9.3",
+    "tiny-slider-react": "^0.5.3",
+    "underscore": "^1.11.0",
+    "yup": "^0.29.3"
+  }
+}
