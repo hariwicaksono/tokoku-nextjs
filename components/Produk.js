@@ -1,34 +1,36 @@
 import React, { Component } from 'react'
-import {Link} from 'react-router-dom'
 import { Container, Row, Col, Card } from 'react-bootstrap'
 import ReactPaginate from 'react-paginate'
 import {ImagesUrl} from '../lib/url'
 import { FiChevronsLeft, FiChevronsRight, FiShoppingCart } from "react-icons/fi"
 import _ from 'underscore';
-import { NotificationManager } from 'react-notifications'
+import { toast } from 'react-toastify';
+
 
 class Produk extends Component {
+  
     constructor(props){
         super(props)
         this.state={
             url : ImagesUrl(),
             offset: 0,
             perPage: 4,
-            currentPage: 0,
+            currentPage: 0
         }
-        this.handlePageClick = this
-        .handlePageClick
-        .bind(this);
+        this.handlePageClick = this.handlePageClick.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
     } 
-    handleSubmit(data, index) {
+
+    
+
+    handleSubmit(produk, key) {
         const array = [];
-        array.push(data);
+        array.push(produk);
         const cartData = JSON.parse(localStorage.getItem('cartItem'));
-        const findManData = _.findWhere(cartData, {id: data.id});
+        const findManData = _.findWhere(cartData, {id: produk.id});
         if (findManData) {
             for (let i = 0; i < cartData.length; i++) {
-                if (data.id === cartData[i].id) {
+                if (produk.id === cartData[i].id) {
                     cartData[i].count += 1; 
                     break;
                 }
@@ -36,13 +38,13 @@ class Produk extends Component {
             localStorage.setItem('cartItem',JSON.stringify(cartData));
         } else {
             if (cartData) {
-                cartData.push({...data,count:1})
+                cartData.push({...produk,count:1})
                 localStorage.setItem('cartItem',JSON.stringify(cartData));
             } else {
                 localStorage.setItem('cartItem',array);
             }
         }
-        NotificationManager.warning('Berhasil masuk keranjang');
+        toast.success("Produk berhasil masuk keranjang", {position: "top-center"});
         setTimeout(()=>{
           this.props.totalCnt(JSON.parse(localStorage.getItem('cartItem')) ? JSON.parse(localStorage.getItem('cartItem')).length : 0);
         },1000);

@@ -1,15 +1,41 @@
+import React, { Component, useContext } from 'react';
 import {Container, Row, Col, Form, Button, Navbar, Nav, NavItem, NavDropdown, Badge} from 'react-bootstrap';
 import Link from 'next/link';
 import UserContext from '../lib/userContext';
 import Router from 'next/router';
 import SearchForm from './SearchForm';
 import Cookies from 'js-cookie';
-import { useContext } from 'react';
 import { FiHome, FiShoppingCart, FiUser, FiUserPlus } from "react-icons/fi"
 
+class Count extends Component {
+  constructor(props) {
+      super(props);
+      this.state = {
+        cartCount: 0
+      }
+    }
+    componentDidMount() {
+      const cartData = JSON.parse(localStorage.getItem('cartItem'));
+      const cartCount = cartData && cartData.length ? cartData.length : 0;
+      this.setState({cartCount: cartCount});
+    }
+  render() {
+      let that = this;
+      const cartCount = (cartCount) => {
+          that.setState({cartCount: cartCount})
+      }
+  return(
+      <>
+{that.state.cartCount ?
+              <span>{that.state.cartCount}</span> : ""
+              }
+      </>
+  );
+  }
+}
 function MyNavbar() {
 
-  const [, setUserContext] = useContext(UserContext);
+ 
 
   function onLogout() {
     Cookies.set('jwt', '');
@@ -49,27 +75,9 @@ function MyNavbar() {
         <SearchForm />
         <Nav>
         <FiShoppingCart size="1.5em"/>
-                <Badge pill variant="danger" style={{position:'absolute'}}></Badge>
+                <Badge pill variant="danger" style={{position:'absolute'}}><Count/></Badge>
         </Nav>
-      <UserContext.Consumer >
-        {([userContext,]) => {
-          if (userContext) {
-            return <Nav>
-              <Navbar.Text>
-                Signed in as: {userContext.username}
-              </Navbar.Text>
-              <Nav.Link onClick={onLogout}>Logout</Nav.Link>
-            </Nav>
-          }
-
-          return <Nav>
-            <Link href="/login" passHref>
-              <Nav.Link>Login</Nav.Link>
-            </Link>
-          </Nav>
-        }}
-
-      </UserContext.Consumer>
+      
     </Navbar.Collapse>
     </Container>
   </Navbar>;

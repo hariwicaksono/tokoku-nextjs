@@ -1,12 +1,11 @@
 import React, { Component } from 'react';
 import Head from 'next/head';
 import Link from 'next/link';
-import Navbar from './Navbar';
 
-const name = '[Your Name]'
-export const siteTitle = 'Next.js Sample Website'
+const name = 'Tokoku'
+export const siteTitle = 'Tokoku - React Next.js'
 
-export default function Layout({ children, home }) {
+const Layout = props => {
   
   return (
     <>
@@ -25,15 +24,10 @@ export default function Layout({ children, home }) {
         <meta name="og:title" content={siteTitle} />
         <meta name="twitter:card" content="summary_large_image" />
       </Head>
-      <Navbar />      
-      <main>{children}</main>
-      {!home && (
-        <>
-          <Link href="/">
-            <a>← Back to home</a>
-          </Link>
-        </>
-      )}
+        
+      <main>{props.children}</main>
+
     </>
   )
 }
+export default Layout;
