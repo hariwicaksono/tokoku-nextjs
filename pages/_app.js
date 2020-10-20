@@ -4,11 +4,10 @@ import App from 'next/app';
 // ensure all pages have Bootstrap CSS
 import 'argon-design-system-react/src/assets/css/argon-design-system-react.css?v1.1.0';
 import '../styles/global.css';
-import 'react-notifications/lib/notifications.css';
 import 'spin.js/spin.css';
+import 'react-toastify/dist/ReactToastify.css';
 import UserContext from '../lib/userContext';
 import { ToastContainer } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
 import Navbar from '../components/Navbar';
 
 
