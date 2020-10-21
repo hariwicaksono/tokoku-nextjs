@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
 import Head from 'next/head';
 import Link from 'next/link';
+import Footer from './footer';
 
-const name = 'Tokoku'
-export const siteTitle = 'Tokoku - React Next.js'
+export const siteName = 'Berkah Utama'
+export const siteTitle = 'UD Berkah Utama - Next.js + CI3'
 
 const Layout = props => {
   
@@ -26,7 +27,7 @@ const Layout = props => {
       </Head>
         
       <main>{props.children}</main>
-
+      <Footer siteName={siteName}/>
     </>
   )
 }

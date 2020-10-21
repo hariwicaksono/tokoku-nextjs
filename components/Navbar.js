@@ -1,5 +1,6 @@
-import React, { Component, useContext } from 'react';
-import {Container, Row, Col, Form, Button, Navbar, Nav, NavItem, NavDropdown, Badge} from 'react-bootstrap';
+import React, { Component, useState, useContext } from 'react';
+import {siteName} from '../components/layout'
+import {Container, Row, Col, Form, Button, Navbar, Nav, NavItem, NavDropdown, Badge, Modal} from 'react-bootstrap';
 import Link from 'next/link';
 import UserContext from '../lib/userContext';
 import Router from 'next/router';
@@ -7,46 +8,48 @@ import SearchForm from './SearchForm';
 import Cookies from 'js-cookie';
 import { FiHome, FiShoppingCart, FiUser, FiUserPlus } from "react-icons/fi"
 
-class Count extends Component {
-  constructor(props) {
-      super(props);
-      this.state = {
-        cartCount: 0
-      }
-    }
-    componentDidMount() {
-      const cartData = JSON.parse(localStorage.getItem('cartItem'));
-      const cartCount = cartData && cartData.length ? cartData.length : 0;
-      this.setState({cartCount: cartCount});
-    }
-  render() {
-      let that = this;
-      const cartCount = (cartCount) => {
-          that.setState({cartCount: cartCount})
-      }
-  return(
-      <>
-{that.state.cartCount ?
-              <span>{that.state.cartCount}</span> : ""
-              }
-      </>
+function Cart(props) {
+  const [show, setShow] = useState(false);
+
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
+
+  return (
+    <>
+      <Button  variant="link" className="text-secondary" onClick={handleShow}>
+      <FiShoppingCart size="1.5em"/> {props.cartCount ? <span className="text-danger">{props.cartCount}</span> : ""}
+      </Button>
+
+      <Modal show={show} size="lg" onHide={handleClose} animation={false} backdrop="static" keyboard={false}>
+        <Modal.Header closeButton>
+          <Modal.Title>Keranjang</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>{props.cartCount ? <span className="text-danger">{props.cartCount}</span> : ""}</Modal.Body>
+        <Modal.Footer>
+          <Button variant="secondary" onClick={handleClose}>
+            Tutup
+          </Button>
+          <Button variant="success" onClick={handleClose}>
+            Pesan
+          </Button>
+        </Modal.Footer>
+      </Modal>
+    </>
   );
-  }
 }
-function MyNavbar() {
+class MyNavbar extends Component {
 
- 
-
-  function onLogout() {
+   onLogout() {
     Cookies.set('jwt', '');
     setUserContext(undefined);
     Router.push('/login');
   }
-
-  return <Navbar className="shadow-sm border-bottom mb-3 py-1" expand="lg" sticky="top" style={{backgroundColor: '#fff'}}>
+render() {
+  return (
+    <Navbar className="shadow-sm border-bottom mb-3 py-1" expand="lg" sticky="top" style={{backgroundColor: '#fff'}}>
     <Container>
     <Link href="/" passHref>
-      <Navbar.Brand href="/">Tokoku</Navbar.Brand>
+    <Navbar.Brand href="/">{siteName}</Navbar.Brand>
     </Link>
     <Navbar.Toggle />
     <Navbar.Collapse className="justify-content-end">
@@ -54,7 +57,7 @@ function MyNavbar() {
                 <Col className="collapse-brand d-lg-none d-xl-none" xs="6">
                 <Link href="/" passHref>
                 <Navbar.Brand href="/"> 
-                TokoRia
+                {siteName}
                 </Navbar.Brand>
                 </Link>
                 </Col>
@@ -72,15 +75,16 @@ function MyNavbar() {
              
             </NavDropdown>
         </Nav>
-        <SearchForm />
+        
         <Nav>
-        <FiShoppingCart size="1.5em"/>
-                <Badge pill variant="danger" style={{position:'absolute'}}><Count/></Badge>
+        <Cart cartCount={this.props.cartCount} />
         </Nav>
       
     </Navbar.Collapse>
     </Container>
-  </Navbar>;
+  </Navbar>
+  );
+}
 }
 
 export default MyNavbar;

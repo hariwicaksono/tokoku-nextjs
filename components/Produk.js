@@ -56,7 +56,7 @@ class Produk extends Component {
                 const ListProduk = slice.map((produk, key) => (
                     <Col md={3} key={produk.id}>
                     <Card className="shadow-sm mb-3">
-                        <Card.Img variant="top" src={this.state.url+"/products/"+produk.src} alt={produk.name} />
+                        <Card.Img variant="top" src={this.state.url+"/products/"+produk.images} alt={produk.name} />
                         <Card.Body className="pt-1">
                             <Card.Text className="mb-0" style={{fontSize: '1.125rem'}}>{produk.name}</Card.Text>
                             <Card.Text className="text-danger" style={{fontSize: '1rem'}}>Rp{produk.price}</Card.Text>
