@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import Link from 'next/link';
 import { Container, Row, Col, Card } from 'react-bootstrap'
 import ReactPaginate from 'react-paginate'
 import {ImagesUrl} from '../lib/url'
@@ -14,7 +15,7 @@ class Produk extends Component {
         this.state={
             url : ImagesUrl(),
             offset: 0,
-            perPage: 4,
+            perPage: 8,
             currentPage: 0
         }
         this.handlePageClick = this.handlePageClick.bind(this);
@@ -55,15 +56,18 @@ class Produk extends Component {
                 const slice = this.props.data.slice(this.state.offset, this.state.offset + this.state.perPage)
                 const ListProduk = slice.map((produk, key) => (
                     <Col md={3} key={produk.id}>
+                        
                     <Card className="shadow-sm mb-3">
-                        <Card.Img variant="top" src={this.state.url+"/products/"+produk.images} alt={produk.name} />
+                    
+                        <Card.Img variant="top" src={this.state.url+"/products/"+produk.gambar} alt={produk.nama} />
+                    
                         <Card.Body className="pt-1">
-                            <Card.Text className="mb-0" style={{fontSize: '1.125rem'}}>{produk.name}</Card.Text>
-                            <Card.Text className="text-danger" style={{fontSize: '1rem'}}>Rp{produk.price}</Card.Text>
-                           
-                            <button type="submit" name="submit" defaultValue="Keranjang" className="btn btn-secondary btn-block" onClick={() => this.handleSubmit(produk, key)}>Tambah Ke <FiShoppingCart size="1.5em"/></button>
+                        <Card.Text className="mb-0" style={{fontSize: '1.125rem'}}><Link href={"/produk/"+produk.id} passHref>{produk.nama}</Link></Card.Text>
+                            <Card.Text className="text-danger" style={{fontSize: '1rem'}}>Rp{produk.harga}</Card.Text>
+                            <button type="submit" name="submit" defaultValue="Keranjang" className="btn btn-secondary btn-block" onClick={() => this.handleSubmit(produk, key)}>Beli <FiShoppingCart /></button>
                         </Card.Body>
                     </Card>
+                    
                     </Col>
                 ))
 

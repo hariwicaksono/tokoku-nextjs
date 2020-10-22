@@ -9,9 +9,7 @@ import { login } from '../lib/login';
 
 export default function Login() {
 
-  const [, setUserContext] = useContext(UserContext);
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
+
 
   async function handleSubmit(event) {
     event.preventDefault();

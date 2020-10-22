@@ -1,6 +1,7 @@
 
 import React, { Component, useState } from "react";
 import App from 'next/app';
+import Head from 'next/head';
 // ensure all pages have Bootstrap CSS
 import 'argon-design-system-react/src/assets/css/argon-design-system-react.css?v1.1.0';
 import '../styles/global.css';

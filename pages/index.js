@@ -1,8 +1,8 @@
-import React, { Component } from 'react';
+import React, {Component} from 'react';
+import Head from 'next/head';
+import Layout, {siteTitle} from '../components/layout';
 import Loader from 'react-loader';
 import API from '../lib/axios';
-import Head from 'next/head';
-import Layout, { siteTitle } from '../components/layout';
 import { Container, Row, Col, Card } from 'react-bootstrap';
 import UserContext from '../lib/userContext';
 import Dashboard from '../components/Dashboard';

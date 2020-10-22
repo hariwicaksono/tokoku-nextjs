@@ -1,6 +1,6 @@
 import Head from 'next/head'
-import Layout, { siteTitle } from '../components/Layout'
-import Login from "../components/Login";
+import Layout, { siteTitle } from '../components/layout'
+import Login from "../components/login";
 import Row from 'react-bootstrap/Row';
 import Container from 'react-bootstrap/Container';
 import Col from 'react-bootstrap/Col';
