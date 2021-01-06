@@ -1,8 +1,6 @@
 import React, { Component, useState, useContext } from 'react';
-import {siteName} from '../components/layout'
 import {Container, Row, Col, Form, Button, Navbar, Nav, NavItem, NavDropdown, Badge, Modal} from 'react-bootstrap';
 import Link from 'next/link';
-import UserContext from '../libs/userContext';
 import Router from 'next/router';
 import SearchForm from './SearchForm';
 import Cookies from 'js-cookie';
@@ -20,7 +18,7 @@ function Cart(props) {
       <FiShoppingCart size="1.5em"/> {props.cartCount ? <span className="text-danger">{props.cartCount}</span> : ""}
       </Button>
 
-      <Modal show={show} size="lg" onHide={handleClose} animation={false} backdrop="static" keyboard={false}>
+      <Modal show={show} size="lg" onHide={handleClose} animation={true} backdrop="static" keyboard={false} style={{top:60}}>
         <Modal.Header closeButton>
           <Modal.Title>Keranjang</Modal.Title>
         </Modal.Header>
@@ -46,10 +44,10 @@ class MyNavbar extends Component {
   }
 render() {
   return (
-    <Navbar className="shadow-sm border-bottom mb-3 py-1" expand="lg" sticky="top" style={{backgroundColor: '#fff'}}>
+    <Navbar className="shadow border-bottom mb-4" expand="lg" sticky="top" style={{backgroundColor: '#fff'}}>
     <Container>
     <Link href="/" passHref>
-    <Navbar.Brand href="/">{siteName}</Navbar.Brand>
+    <Navbar.Brand href="/">{this.props.config[0].nm_web}</Navbar.Brand>
     </Link>
     <Navbar.Toggle />
     <Navbar.Collapse className="justify-content-end">
@@ -57,7 +55,7 @@ render() {
                 <Col className="collapse-brand d-lg-none d-xl-none" xs="6">
                 <Link href="/" passHref>
                 <Navbar.Brand href="/"> 
-                {siteName}
+                {this.props.config[0].nm_web}
                 </Navbar.Brand>
                 </Link>
                 </Col>

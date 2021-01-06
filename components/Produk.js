@@ -15,7 +15,7 @@ class Produk extends Component {
         this.state={
             url : ImagesUrl(),
             offset: 0,
-            perPage: 8,
+            perPage: 4,
             currentPage: 0
         }
         this.handlePageClick = this.handlePageClick.bind(this);

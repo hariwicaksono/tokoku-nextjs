@@ -1,7 +1,6 @@
 {
   "name": "next-js-react-bootstrap",
   "version": "0.1.0",
-  "main": "src/index.js",
   "license": "MIT",
   "scripts": {
     "dev": "next",
@@ -10,7 +9,6 @@
   },
   "dependencies": {
     "@zeit/next-css": "^1.0.1",
-    "argon-design-system-react": "^1.1.0",
     "axios": "^0.21.1",
     "bootstrap": "^4.5.3",
     "formik": "^2.2.6",

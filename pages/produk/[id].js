@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import Head from 'next/head';
-import Layout, {siteTitle} from '../../components/layout';
+import Layout from '../../components/Layout';
 import API from '../../libs/axios';
-import {ImagesUrl} from '../../lib/url';
+import {ImagesUrl} from '../../libs/url';
 import { Container, Row, Col, Card } from 'react-bootstrap';
 
 

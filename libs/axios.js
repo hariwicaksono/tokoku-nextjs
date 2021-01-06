@@ -1,10 +1,20 @@
 import Axios from 'axios'
 
-const RoothPath = "http://localhost/tokoku-server/api/"
+const RootPath = "http://localhost/tokoku-server/api/"
+
+// Authorization
+// key = blog123
+// Gunakan https://www.base64decode.org untuk melakukan encode key diatas menjadi format base64
+var key = new Buffer.from('dG9rb2t1MTEyMg==', 'base64')
+const ApiKey = key.toString();
 
 const GET = (path) => {
     const promise = new Promise((resolve,reject)=>{
-        Axios.get(RoothPath+path).then(res=>{
+        Axios.get(RootPath+path, {
+            headers: {
+           'X-API-KEY': `${ApiKey}`
+          },
+          }).then(res=>{
             resolve(res.data)
         },err=>{
             reject(err)
@@ -15,7 +25,11 @@ const GET = (path) => {
 
 const GET_ID = (path,id) => {
     const promise = new Promise((resolve,reject)=>{
-        Axios.get(RoothPath+path+id).then(res=>{
+        Axios.get(RootPath+path+id, {
+            headers: {
+           'X-API-KEY': `${ApiKey}`
+          },
+          }).then(res=>{
             resolve(res.data)
         },err=>{
             reject(err)
@@ -27,7 +41,11 @@ const GET_ID = (path,id) => {
 
 const LOGIN = (path,data) => {
     const promise = new Promise((resolve,reject)=>{
-        Axios.post(RoothPath+path,data).then(res=>{
+        Axios.post(RootPath+path,data, {
+            headers: {
+           'X-API-KEY': `${ApiKey}`
+          },
+          }).then(res=>{
             resolve(res.data)
         },err=>{
             reject(err)
@@ -36,9 +54,13 @@ const LOGIN = (path,data) => {
     return promise
 }
 
-const POSTUSER = (path,data) =>{
+const POST= (path,data) =>{
    const promise = new Promise((resolve,reject)=>{
-        Axios.post(RoothPath+path,data).then(res=>{
+        Axios.post(RootPath+path,data, {
+            headers: {
+           'X-API-KEY': `${ApiKey}`
+          },
+          }).then(res=>{
             resolve(res.data)
         },err=>{
             reject(err)
@@ -47,20 +69,13 @@ const POSTUSER = (path,data) =>{
    return promise
 }
 
-const POSTPESAN = (path,data) =>{
+ const PUT = (path,data) =>{
     const promise = new Promise((resolve,reject)=>{
-         Axios.post(RoothPath+path,data).then(res=>{
-             resolve(res.data)
-         },err=>{
-             reject(err)
-         })
-    })
-    return promise
- }
-
- const PUTPRODUK = (path,data) =>{
-    const promise = new Promise((resolve,reject)=>{
-         Axios.put(RoothPath+path,data).then(res=>{
+         Axios.put(RootPath+path,data, {
+            headers: {
+           'X-API-KEY': `${ApiKey}`
+          },
+          }).then(res=>{
              resolve(res.data)
          },err=>{
              reject(err)
@@ -71,7 +86,11 @@ const POSTPESAN = (path,data) =>{
 
  const Delete = (path,id) => {
     const promise = new Promise((resolve,reject) => {
-        Axios.delete(RoothPath+path+id).then(res =>{
+        Axios.delete(RootPath+path+id, {
+            headers: {
+           'X-API-KEY': `${ApiKey}`
+          },
+          }).then(res =>{
             resolve(res.data)
         },(err)=>{
             reject(err)
@@ -81,22 +100,15 @@ const POSTPESAN = (path,data) =>{
 }
 
 
- const GETPESAN = (path,data) =>{
-    const promise = new Promise((resolve,reject)=>{
-         Axios.get(RoothPath+path+data).then(res=>{
-             resolve(res.data)
-         },err=>{
-             reject(err)
-         })
-    })
-    return promise
- }
-
  const POSTIMAGE = (path,data,name) => {
      const promise = new Promise((resolve,reject)=>{
          const formdata = new FormData()
          formdata.append('foto',data,name)
-         Axios.post(RoothPath+path,formdata).then(res=>{
+         Axios.post(RootPath+path,formdata, {
+            headers: {
+           'X-API-KEY': `${ApiKey}`
+          },
+          }).then(res=>{
             resolve(res.data.status)
         },(err)=>{
             reject(err)
@@ -114,16 +126,16 @@ const GetAdmin = () => GET('AdminController')
 const GetAllPesan = () => GET('PemesananController')
 const GetProdukId = (data) => GET_ID('produk?id=',data)
 const PostLogin = (data) => LOGIN('LoginController',data)
-const PostUser = (data) => POSTUSER('UserController',data)
-const PostPesan = (data) => POSTPESAN('PemesananController',data)
-const GetPesan = (data) => GETPESAN('PemesananController?id=',data)
-const PostProduk = (data) => POSTPESAN('Produk',data)
-const PostAdmin = (data) => POSTPESAN('AdminController',data)
+const PostUser = (data) => POST('UserController',data)
+const PostPesan = (data) => POST('PemesananController',data)
+const GetPesan = (data) => GET('PemesananController?id=',data)
+const PostProduk = (data) => POST('Produk',data)
+const PostAdmin = (data) => POST('AdminController',data)
 const PostImageP = (data,name) => POSTIMAGE('ImageUpload',data,name)
-const PutProduk = (data) => PUTPRODUK('Produk',data);
-const PutPesan = (data) => PUTPRODUK('PemesananController',data);
-const PutAdmin = (data) => PUTPRODUK('AdminController',data);
-const PutUser = (data) => PUTPRODUK('UserController',data);
+const PutProduk = (data) => PUT('Produk',data);
+const PutPesan = (data) => PUT('PemesananController',data);
+const PutAdmin = (data) => PUT('AdminController',data);
+const PutUser = (data) => PUT('UserController',data);
 const DeleteProduk = (id) => Delete('Produk/index_delete?id=',id)
 const DeletePemesanan = (id) => Delete('PemesananController/index_delete?id=',id)
 const DeleteUser = (id) => Delete('UserController/index_delete?id=',id)
