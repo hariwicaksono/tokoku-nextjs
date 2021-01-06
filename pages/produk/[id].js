@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Head from 'next/head';
 import Layout, {siteTitle} from '../../components/layout';
-import API from '../../lib/axios';
+import API from '../../libs/axios';
 import {ImagesUrl} from '../../lib/url';
 import { Container, Row, Col, Card } from 'react-bootstrap';
 

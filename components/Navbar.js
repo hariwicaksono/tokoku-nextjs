@@ -2,7 +2,7 @@ import React, { Component, useState, useContext } from 'react';
 import {siteName} from '../components/layout'
 import {Container, Row, Col, Form, Button, Navbar, Nav, NavItem, NavDropdown, Badge, Modal} from 'react-bootstrap';
 import Link from 'next/link';
-import UserContext from '../lib/userContext';
+import UserContext from '../libs/userContext';
 import Router from 'next/router';
 import SearchForm from './SearchForm';
 import Cookies from 'js-cookie';

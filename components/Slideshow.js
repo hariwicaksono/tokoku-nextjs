@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {ImagesUrl} from '../lib/url';
+import {ImagesUrl} from '../libs/url';
 import {Carousel} from 'react-bootstrap';
 
 const url = ImagesUrl();

@@ -7,7 +7,7 @@ import 'argon-design-system-react/src/assets/css/argon-design-system-react.css?v
 import '../styles/global.css';
 import 'spin.js/spin.css';
 import 'react-toastify/dist/ReactToastify.css';
-import UserContext from '../lib/userContext';
+import UserContext from '../libs/userContext';
 import { ToastContainer } from 'react-toastify';
 import Navbar from '../components/Navbar';
 

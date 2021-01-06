@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import Link from 'next/link';
 import { Container, Row, Col, Card } from 'react-bootstrap'
 import ReactPaginate from 'react-paginate'
-import {ImagesUrl} from '../lib/url'
+import {ImagesUrl} from '../libs/url'
 import { FiChevronsLeft, FiChevronsRight, FiShoppingCart } from "react-icons/fi"
 import _ from 'underscore';
 import { toast } from 'react-toastify';

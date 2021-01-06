@@ -1,5 +1,5 @@
 import React,{Component} from 'react'
-import API from '../lib/axios';
+import API from '../libs/axios';
 import { Container, Row, Col} from 'react-bootstrap'
 import {FaWhatsapp} from 'react-icons/fa';
  

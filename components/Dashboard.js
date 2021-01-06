@@ -3,7 +3,7 @@ import React, { useState, useContext } from "react";
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
-import UserContext from '../lib/userContext';
+import UserContext from '../libs/userContext';
 
 function Dashboard() {
   const [{ username },] = useContext(UserContext);
