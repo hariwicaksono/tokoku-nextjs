@@ -1,4 +1,3 @@
-
 import React, { Component, useState } from "react";
 import '../styles/theme.min.css';
 import '../styles/global.css';
@@ -7,7 +6,7 @@ import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import 'react-toastify/dist/ReactToastify.css';
 import { ToastContainer } from 'react-toastify';
-import Navbar from '../components/Navbar';
+import Navbar from '../components/navbar';
 import API from '../libs/axios';
 import Loader from 'react-loader';
 

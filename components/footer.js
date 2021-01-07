@@ -1,4 +1,4 @@
-import React,{Component} from 'react'
+import React, {Component} from 'react'
 import API from '../libs/axios';
 import { Container, Row, Col} from 'react-bootstrap'
 import {FaWhatsapp} from 'react-icons/fa';
@@ -64,4 +64,4 @@ class Footer extends Component{
     }
 }
 
-export default Footer
+export default Footer;

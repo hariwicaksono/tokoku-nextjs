@@ -2,7 +2,7 @@ import React, { Component, useState, useContext } from 'react';
 import {Container, Row, Col, Form, Button, Navbar, Nav, NavItem, NavDropdown, Badge, Modal} from 'react-bootstrap';
 import Link from 'next/link';
 import Router from 'next/router';
-import SearchForm from './SearchForm';
+import SearchForm from './searchForm';
 import Cookies from 'js-cookie';
 import { FiHome, FiShoppingCart, FiUser, FiUserPlus } from "react-icons/fi"
 
@@ -44,7 +44,7 @@ class MyNavbar extends Component {
   }
 render() {
   return (
-    <Navbar className="shadow border-bottom mb-4" expand="lg" sticky="top" style={{backgroundColor: '#fff'}}>
+    <Navbar className="shadow border-bottom mb-4" expand="lg" sticky="top" style={{backgroundColor: '#fff', height:'60px'}}>
     <Container>
     <Link href="/" passHref>
     <Navbar.Brand href="/">{this.props.config[0].nm_web}</Navbar.Brand>

@@ -1,9 +1,7 @@
 
 import React, { useState, useContext } from "react";
-import Form from 'react-bootstrap/Form';
-import Button from 'react-bootstrap/Button';
 import Router from 'next/router';
-import UserContext from '../libs/userContext';
+import {Button, Form} from 'react-bootstrap';
 
 import { login } from '../libs/login';
 

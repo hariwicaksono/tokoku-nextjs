@@ -1,6 +1,6 @@
-import React, {useState} from 'react'
-import {Link} from 'react-router-dom'
-//import {X} from 'react-bootstrap-icons'
+import React, {useState} from 'react';
+import {Link} from 'react-router-dom';
+//import {X} from 'react-bootstrap-icons';
 
 const SearchResults = (props) => {
   

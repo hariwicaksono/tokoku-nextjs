@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import Head from 'next/head';
-import Layout from '../../components/Layout';
+import Layout from '../../components/layout';
 import API from '../../libs/axios';
 import {ImagesUrl} from '../../libs/url';
 import { Container, Row, Col, Card } from 'react-bootstrap';
