@@ -49,7 +49,7 @@ componentDidMount = () => {
     <>
       <Layout home>
       <Head>
-        <title>{this.props.metaData[0].nm_web}</title>
+        <title>{this.props.metaData[0].nama_web} {this.props.metaData[0].nama_pt}</title>
       </Head>
       <Container>
 

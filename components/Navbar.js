@@ -44,10 +44,10 @@ class MyNavbar extends Component {
   }
 render() {
   return (
-    <Navbar className="shadow border-bottom mb-4" expand="lg" sticky="top" style={{backgroundColor: '#fff', height:'60px'}}>
+    <Navbar className="shadow-sm border-bottom py-2 mb-4" expand="lg" sticky="top" style={{backgroundColor: '#fff'}}>
     <Container>
     <Link href="/" passHref>
-    <Navbar.Brand href="/">{this.props.config[0].nm_web}</Navbar.Brand>
+    <Navbar.Brand href="/">{this.props.config[0].nama_web}</Navbar.Brand>
     </Link>
     <Navbar.Toggle />
     <Navbar.Collapse className="justify-content-end">

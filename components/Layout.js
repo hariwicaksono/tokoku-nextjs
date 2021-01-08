@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Head from 'next/head';
 import Link from 'next/link';
+import { Container } from 'react-bootstrap';
 import Footer from './footer';
 
 class Layout extends Component {
@@ -15,7 +16,20 @@ class Layout extends Component {
       <link rel="icon" type="image/x-icon" href="/images/favicon.ico" />
       </Head>
       
-      <main>{children}</main>
+      {!home ? 
+      <>
+      <Container>
+      <div className="mb-3">
+      <Link href="/" passHref>
+              <a>← Kembali</a>
+            </Link>
+      </div> 
+      </Container>
+      {children}
+      </>
+      :
+      <>{children}</>
+      }
       <Footer />
     </>
  );

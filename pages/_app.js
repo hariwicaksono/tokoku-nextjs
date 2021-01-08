@@ -1,5 +1,5 @@
 import React, { Component, useState } from "react";
-import '../styles/theme.min.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
 import '../styles/global.css';
 import 'spin.js/spin.css';
 import 'slick-carousel/slick/slick.css'; 
@@ -39,7 +39,7 @@ class MyApp extends Component {
             that.setState({cartCount: cartCount})
         }
     return (
-    <>
+    <> 
       {
               this.state.loading ?
               <Loader options={options} className="spinner" />

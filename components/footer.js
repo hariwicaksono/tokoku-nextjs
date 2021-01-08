@@ -7,7 +7,7 @@ class Footer extends Component{
     constructor(props) {
         super(props)
         this.state = {
-            nm_web: '',
+            nama_web: '',
             nama_pt: '',
             alamat_pt: '',
             telp_pt: '',
@@ -21,7 +21,7 @@ class Footer extends Component{
           
           API.GetPengaturan().then(res => {
             setTimeout(() => this.setState({
-                nm_web: res.data[0].nm_web,
+                nama_web: res.data[0].nama_web,
                 nama_pt: res.data[0].nama_pt,
                 alamat_pt: res.data[0].alamat_pt,
                 telp_pt: res.data[0].telp_pt,
@@ -37,16 +37,16 @@ class Footer extends Component{
      const {url} = this.state
         return(  
                
-            <section className="border-0 py-5 bg-secondary">
+            <section className="border-0 py-5" style={{backgroundColor: '#f2f2f2'}}>
             <Container>
             <Row>
            
                 <Col md={6}>
-                <h4>Info Kontak</h4>
-                <h5>{this.state.nama_pt}<br/>
+                <h5>Hubungi Kami</h5>
+                <h4>{this.state.nama_pt}<br/>
                 <small>{this.state.alamat_pt}<br/>
                 Telp: {this.state.telp_pt}<br/>
-                </small></h5>
+                </small></h4>
                 <a href="" target="_blank" className="btn btn-success" title="Chat Kami" alt="Chat Kami" rel="noopener noreferrer"><FaWhatsapp/> Chat Kami</a>
                 </Col>
 
@@ -55,7 +55,7 @@ class Footer extends Component{
                 </Col>
             </Row>
            
-            <div className="mt-4">© 2020. {url}</div>
+            <div className="mt-4">© 2020. {this.state.nama_web} {this.state.nama_pt} {url}</div>
             </Container>
             </section>
 

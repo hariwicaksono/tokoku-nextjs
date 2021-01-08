@@ -6,7 +6,7 @@ class homeCard extends Component{
     render(){ 
         return(
 
-        <Card className="shadow border my-3" body>This is some text within a card body.</Card>
+        <Card className="shadow-sm border my-3" body>This is some text within a card body.</Card>
 
         );
     }

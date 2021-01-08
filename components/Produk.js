@@ -64,7 +64,7 @@ class Produk extends Component {
                         <Card.Body className="pt-1">
                         <Card.Text className="mb-0" style={{fontSize: '1.125rem'}}><Link href={"/produk/"+produk.id} passHref>{produk.nama}</Link></Card.Text>
                             <Card.Text className="text-danger" style={{fontSize: '1rem'}}>Rp{produk.harga}</Card.Text>
-                            <button type="submit" name="submit" defaultValue="Keranjang" className="btn btn-secondary btn-block" onClick={() => this.handleSubmit(produk, key)}>Beli <FiShoppingCart /></button>
+                            <button type="submit" name="submit" defaultValue="Keranjang" className="btn btn-success btn-block" onClick={() => this.handleSubmit(produk, key)}>Beli <FiShoppingCart /></button>
                         </Card.Body>
                     </Card>
                     

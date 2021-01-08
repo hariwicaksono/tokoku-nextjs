@@ -45,10 +45,10 @@ static async getInitialProps ({ query }) {
   return (
     <Layout>
       <Head>
-        <title>{this.state.nama} - {siteTitle}</title>
+        <title>{this.state.nama} - {this.props.metaData[0].nama_web} {this.props.metaData[0].nama_pt}</title>
       </Head>
       <Container>
-      <Card className="mb-3" body>
+      <Card className="mb-4" body>
       <Row>
         <Col md={4}>
         <img src={this.state.url+"/products/"+this.state.gambar} alt={this.state.nama} />
